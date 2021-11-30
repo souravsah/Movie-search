@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Scroll } from './ScrollBox.style'
-const ScrollBox = ({togglestreaming,toggleTv,toggleRent,toggleTheaters,handleStreaming,handleTv,handleRent,}) => {
+const ScrollBox = ({togglestreaming,toggleTv,toggleRent,toggleTheaters,handleStreaming,handleTv,handleRent,handleTheaters}) => {
     return (
         <Scroll toggleRent={toggleRent} 
                 toggleTheaters={toggleTheaters} 
