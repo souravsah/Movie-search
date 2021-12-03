@@ -4,7 +4,6 @@ import useFetchMovies from '../../../hooks/useFetchMovies'
 import { Parent,Trending1 } from './Trending.style'
 const Trending = () => {
     let {movies:movies} =  useFetchMovies("trendingtoday")
-    console.log(movies)
     return (
         <Trending1>
          <Parent>

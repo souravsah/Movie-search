@@ -98,7 +98,7 @@ const  useFetchMovies = (data="",query='') => {
         }    
     },[])
     useEffect(()=>{
-        if(query.length){
+        if(query.trim().length){
          dispatch({type:ACTION_TYPES.FETCHING_DATA})
          searchmovies(`${BASE_URL.SEARCH_URL}${query}&page=1&include_adult=false}`)   
         }

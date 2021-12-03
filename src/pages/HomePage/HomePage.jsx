@@ -9,8 +9,6 @@ import { MovieContext } from '../../Context/Moviedata'
 import Movieboxcontainer from '../../core/Movieboxcontainer/Movieboxcontainer'
 import Layout from '../../Layout/Layout'
 const HomePage = () => {
-    let {trail}=useContext(MovieContext)
-    console.log(trail)
         return (
         <>
 

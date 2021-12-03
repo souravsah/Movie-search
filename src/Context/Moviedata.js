@@ -3,6 +3,7 @@ import { useReducer } from "react/cjs/react.development";
 import Moviedatareducer from "./Moviedatareducer"
 let initialState={
     searchdata:"",
+    dropdowndata:"",
 }
 export const MovieContext = createContext(initialState)
 
@@ -14,12 +15,20 @@ const getSearchData = (data) =>{
         payload:data
     })
 }
+const getDropdata = (data) =>{
+    dispatch({
+        type:"GET_DROPDOWN_DATA",
+        payload:data
+    })
+}
  return (
      <MovieContext.Provider
         value={
             {
                 searchdata:state.searchdata,
+                dropdowndata:state.dropdowndata,
                 getSearchData,
+                getDropdata
 
             }
         }
