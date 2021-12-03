@@ -6,5 +6,7 @@ export default (state,action) => {
             return{...state,["dropdowndata"]:action.payload}
         default:
             return state;
+        case "GET_SCROLL_DATA":
+            return{...state,["scrolldata"]:action.payload}
     }
 }

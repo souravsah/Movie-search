@@ -1,15 +1,22 @@
 import React,{useState} from 'react'
+import { useContext, useEffect } from 'react/cjs/react.development';
+import { MovieContext } from '../../../Context/Moviedata';
 import ScrollBox from '../../../core/ScrollBox/ScrollBox'
 import useFetchMovies from '../../../hooks/useFetchMovies';
 
 const PopularScrollbox = () => {
+    let {getScrolldata} = useContext(MovieContext)
+    let [data,settoggleData]=useState("popular")
     let [togglestreaming,settogglestreaming] = useState(true);
     let [toggleTv,settoggleTv] = useState(false);
     let [toggleRent,settoggleRent] = useState(false)
     let [toggleTheaters,settoggleTheaters] = useState(false)
 
+    useEffect(()=>{
+        getScrolldata(data)
+    },[data])
     const handleStreaming = () =>{
-        
+        settoggleData("popular")
         settogglestreaming(true)
         if(toggleTv===true){
             settoggleTv(false)
@@ -23,6 +30,8 @@ const PopularScrollbox = () => {
     
 }
 const handleTv = () =>{
+    settoggleData("onTv")
+
     settoggleTv(true)
     if(togglestreaming===true){
         settogglestreaming(false)
@@ -38,6 +47,8 @@ const handleTv = () =>{
 }
 const handleRent = () =>{
     settoggleRent(true)
+    settoggleData("Rent")
+
     if(togglestreaming===true){
         settogglestreaming(false)
     }
@@ -52,6 +63,8 @@ const handleRent = () =>{
 }
 const handleTheaters = () =>{
     settoggleTheaters(true)
+    settoggleData("free")
+
     if(togglestreaming===true){
         settogglestreaming(false)
     }

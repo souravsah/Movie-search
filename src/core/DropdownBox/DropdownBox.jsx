@@ -7,13 +7,10 @@ const DropdownBox = () => {
     let [value,setValue]=useState("");
     let {movies:movies}=useFetchMovies("",searchdata);
     let {getDropdata}=useContext(MovieContext)
-    // console.log(movies)
-    // console.log(searchdata)
     useEffect(()=>{
         getDropdata(value)
 
     },[value])
-    console.log(value)
     const handleclick = (e) =>{
         setValue(e.target.textContent)
     }

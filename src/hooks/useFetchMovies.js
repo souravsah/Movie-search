@@ -96,7 +96,7 @@ const  useFetchMovies = (data="",query='') => {
             dispatch({type:ACTION_TYPES.FETCHING_DATA})
             fetchMovies(BASE_URL.TRENDING.TRENDING_THIS_WEEK)
         }    
-    },[])
+    },[data])
     useEffect(()=>{
         if(query.trim().length){
          dispatch({type:ACTION_TYPES.FETCHING_DATA})

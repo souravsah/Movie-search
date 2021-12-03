@@ -1,12 +1,20 @@
 import React,{useState,useEffect} from 'react'
+import { useContext } from 'react/cjs/react.development';
 import { fetchMovies } from '../../../api/movies';
+import { MovieContext } from '../../../Context/Moviedata';
 import Movieboxcontainer from '../../../core/Movieboxcontainer/Movieboxcontainer'
 import ScrollBox from '../../../core/ScrollBox/ScrollBox';
 import useFetchMovies from '../../../hooks/useFetchMovies';
 import PopularScrollbox from '../PopularScrollbox/PopularScrollbox';
 import { Parent } from './popular.style';
 const Popular = () => {
-    let {movies:movies}=useFetchMovies("popular");
+    let {scrolldata}=useContext(MovieContext)
+    let {movies:movies}=useFetchMovies(scrolldata.trim() || "popular");
+    let [movie,setmovie]=useState([])
+
+    useEffect(()=>{
+        setmovie(movies)
+    },[movies])
     return (
         <>
             <Parent>
@@ -14,7 +22,7 @@ const Popular = () => {
             <PopularScrollbox/>
             
             </Parent>
-           <Movieboxcontainer movies={movies}/> 
+           <Movieboxcontainer movies={movie}/> 
         </>
     )
 }

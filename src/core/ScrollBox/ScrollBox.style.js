@@ -8,8 +8,10 @@ export const Scroll = styled.div`
     border-radius: 20px;
     border:#032541 2px solid ;
     cursor: pointer;
-
-& div:nth-child(1){
+div:nth-child(1){
+    display:none ;
+}
+& div:nth-child(2){
     background-color: ${({togglestreaming})=>{
           return  togglestreaming?"#032541":"white"
     }} ;
@@ -23,7 +25,7 @@ export const Scroll = styled.div`
     transition: 1s;
 
 }
-& div:nth-child(2){
+& div:nth-child(3){
     background-color: ${({toggleTv})=>{
           return  toggleTv?"#032541":"white"
     }} ;
@@ -38,7 +40,7 @@ export const Scroll = styled.div`
     transition: 1s;
 
 }
-& div:nth-child(3){
+& div:nth-child(4){
     background-color: ${({toggleRent})=>{
           return  toggleRent?"#032541":"white"
     }} ;
@@ -52,7 +54,7 @@ export const Scroll = styled.div`
 
     border-radius: 20px;
 }
-& div:nth-child(4){
+& div:nth-child(5){
     background-color: ${({toggleTheaters})=>{
           return  toggleTheaters?"#032541":"white"
     }} ;
@@ -69,31 +71,60 @@ export const Scroll = styled.div`
     
         flex-direction: column;
         width: 120px;
-    
-    & div:nth-child(1){
+    border-radius: 0;
+    div:nth-child(1){
+        display: block;
         width: 100%;
         height: 30px;
         padding: 5px 5px;
+        background-color: #032541;
+        color: white;
     }
     & div:nth-child(2){
         width: 100%;
         height: 30px;
         padding: 5px 5px;
-        display: none;
+        z-index: 1;
+        border-radius: 0;
+                display: ${({toggle})=>{
+          return  toggle?"block":"none"
+    }} ;
+
     }
     & div:nth-child(3){
+        width: 100%;
+        height: 30px;
+        padding: 5px 5px;
+        z-index: 1;
+        border-radius: 0;
+
+        display: ${({toggle})=>{
+          return  toggle?"block":"none"
+    }} ;
+    }
+    & div:nth-child(4){
         width: 100%;
         /* padding: 0; */
         height: 30px;
         padding: 5px 5px;
-        display: none;
+        z-index: 1;
+        border-radius: 0;
+
+        display: ${({toggle})=>{
+          return  toggle?"block":"none"
+    }} ;
 
     }
-    & div:nth-child(4){
+    & div:nth-child(5){
         width: 100%;
         height: 30px;
         padding: 5px 5px;
-        display: none;
+        z-index: 1;
+        border-radius: 0;
+
+        display: ${({toggle})=>{
+          return  toggle?"block":"none"
+    }} ;
 
     }
 

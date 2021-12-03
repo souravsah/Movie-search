@@ -4,6 +4,7 @@ import Moviedatareducer from "./Moviedatareducer"
 let initialState={
     searchdata:"",
     dropdowndata:"",
+    scrolldata:"",
 }
 export const MovieContext = createContext(initialState)
 
@@ -21,14 +22,22 @@ const getDropdata = (data) =>{
         payload:data
     })
 }
+const getScrolldata = (data) =>{
+dispatch({
+    type:"GET_SCROLL_DATA",
+    payload:data
+})
+}
  return (
      <MovieContext.Provider
         value={
             {
                 searchdata:state.searchdata,
                 dropdowndata:state.dropdowndata,
+                scrolldata:state.scrolldata,
                 getSearchData,
-                getDropdata
+                getDropdata,
+                getScrolldata
 
             }
         }
