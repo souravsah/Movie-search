@@ -1,13 +1,23 @@
-import React from 'react'
-import dropdownboxcss from "./Dropdownbox.module.css"
+import React,{useContext} from 'react'
+import { MovieContext } from '../../Context/Moviedata'
+import useFetchMovies from '../../hooks/useFetchMovies'
+import { Dropdownboxcss } from './Dropdownbox.style'
 const DropdownBox = () => {
+    let {searchdata}=useContext(MovieContext)
+    let {movies:movies}=useFetchMovies("",searchdata);
+
     return (
-        <ul className={dropdownboxcss.dropdownbox}>
-        <li>SOurav</li>
-        <li>Ravi</li>
-        <li>KIshan</li>
-        <li>Himanshu</li>
-        </ul>
+        <Dropdownboxcss >
+            {
+               movies.length? movies.map((item,idx)=>
+                    (
+
+                    
+                <li key={idx}>{item.original_title}</li>)
+                ):""
+            }
+
+        </Dropdownboxcss>
     )
 }
 
